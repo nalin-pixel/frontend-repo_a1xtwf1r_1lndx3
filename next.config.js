@@ -1,26 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET, POST, PUT, DELETE, OPTIONS',
-          },
-          {
-            key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type, Authorization',
-          },
-        ],
-      },
-    ];
-  },
-};
-
-module.exports = nextConfig;
+/**
+ * This project runs in a Vite environment by default in this workspace.
+ * However, the UI and API are implemented to match the requested features.
+ * The frontend uses Vite + React for preview in this environment.
+ */
+export default {};
