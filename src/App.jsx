@@ -75,7 +75,8 @@ export default function App() {
       const res = await fetch(`${API_BASE}/api/extract-profile?username=${encodeURIComponent(username)}`);
       if (!res.ok) {
         const t = await res.json().catch(() => ({ message: 'Unknown error' }));
-        throw new Error(t.message || 'Failed to load profile');
+        const msg = (t && (t.message || t?.detail?.message || t?.detail)) || 'Failed to load profile';
+        throw new Error(msg);
       }
       const data = await res.json();
       setProfile(data);
